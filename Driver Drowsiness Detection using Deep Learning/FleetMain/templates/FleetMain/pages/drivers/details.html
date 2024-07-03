@@ -1,0 +1,118 @@
+{% extends 'ApxbFleetMain/blankLayout.html' %}
+{% load static %}
+{% block content %}
+{% load i18n %}
+
+<div class="container mt-4">
+  <div class="btn-toolbar float-end d-inline pb-3">
+    <a class="btn btn-sm btn-outline-secondary " href="{% url 'ApxbFleetMain:driver_edit' driver.id %}" ><i class="fa fa-penci"></i> {% trans 'EditDriver' %}</a>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <!-- Driver profile picture -->
+      {% if driver.picture %}
+      <img src="{{ driver.picture.url }}" alt="{{ driver.first_name }}'s Picture" class="img-fluid rounded-circle mb-3 bg-image" style="height: 150px; width: 150px; object-fit: cover;">
+    {% else %}
+      <img src="https://via.placeholder.com/150" alt="Driver Profile Picture" class="img-fluid rounded-circle mb-3 bg-image" style="height: 150px; width: 150px; object-fit: cover;">
+    {% endif %}
+      <h3 class="mb-3">{{ driver.first_name }} {{ driver.last_name }}</h3>
+      <!-- Driver essential information -->
+      <ul class="list-unstyled">
+        <li><strong>{% trans 'DriverId' %}:</strong> 12345</li>
+        <li><strong>{% trans 'LicenseNumber' %}:</strong> {{ driver.license_plate }}</li>
+        <li><strong>{% trans 'PhoneNumber' %}:</strong> {{ driver.phone_number }}</li>
+        <li><strong>{% trans 'Email' %}:</strong> {{ driver.email }}</li>
+        <li><strong>{% trans 'Address' %}:</strong> 123 Main St, Anytown, USA</li>
+      </ul>
+
+      <a href="{% url 'ApxbFleetMain:live_feeds'%}" class="btn btn-primary">{% trans 'LiveFeeds' %}</a>
+    </div>
+    <div class="col-md-8">
+      <!-- Driver additional information -->
+      <h4 class="mb-3">{% trans 'AdditionalInformation' %}</h4>
+      <ul class="list-group mb-3">
+        <li class="list-group-item">{% trans 'YearsOfExperience' %}: 10</li>
+        <li class="list-group-item">{% trans 'DrivingRecord' %}: Clean</li>
+        <li class="list-group-item">{% trans 'TrainingCoursesCompleted' %}: DefensiveDriving, SafetyTraining </li>
+        <li class="list-group-item">{% trans 'LanguagesSpoken' %}: English, Spanish</li>
+      </ul>
+      <!-- Driver location information -->
+      <h4 class="mb-3">{% trans 'LocationInformation' %}</h4>
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">{% trans 'CurrentLocation' %}</h5>
+          <p class="card-text">123 Main St, Anytown, USA</p>
+          <a href="https://www.google.com/maps/dir/?api=1&destination={{driver_location.latitude}},{{driver_location.longitude}}" target="_blank" class="btn btn-primary">{% trans 'GetDirections' %}</a>
+          <div id="map"></div>
+        </div>
+      </div>
+      <canvas id="driver-behavior-chart"></canvas>
+    </div>
+  </div>
+</div>
+{% endblock %}
+{% block script %}
+<script>
+  function initMap() {
+      // Initialize a new Google Map
+      var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 16
+      });
+
+      // Try to get the user's current location
+      if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function (position) {
+              var pos = {
+                  lat: {{driver_location.latitude}},
+                  lng: {{driver_location.longitude}}
+              };
+
+              // Center the map on the user's location
+              map.setCenter(pos);
+
+              // Add a marker to the user's location
+              var marker = new google.maps.Marker({
+                  position: pos,
+                  map: map,
+                  title: '{{ driver.first_name}} {{driver.last_name}}'
+              });
+          });
+      }
+  }
+</script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.1"></script>
+<script>
+  // Retrieve the data from the server
+  fetch('/get-driver-behavior-data/')
+  .then(response => response.json())
+  .then(data => {
+    const behaviorData = data.data;
+    const behaviorLabels = behaviorData.map(item => item.behavior);
+    const behaviorCounts = behaviorData.map(item => item.count);
+
+    const ctx = document.getElementById('driver-behavior-chart');
+    const myChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: behaviorLabels,
+        datasets: [{
+          label: '# of Occurrences',
+          data: behaviorCounts,
+          backgroundColor: 'rgba(54, 162, 235, 0.2)',
+          borderColor: 'rgba(54, 162, 235, 1)',
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+  });
+  </script>
+  
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDGpHozG4LVQn1pzqAbp3d8CtLPv0kqbas&callback=initMap"></script>
+{% endblock %}

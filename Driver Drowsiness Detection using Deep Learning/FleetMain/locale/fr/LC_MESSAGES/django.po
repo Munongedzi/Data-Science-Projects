@@ -1,0 +1,135 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-05-23 01:49+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+
+#: .\ApxbFleetMain\templates\ApxbFleetMain\index.html:10
+msgid "NonIntrusive"
+msgstr "Ayikuphazamisi"
+
+#: .\ApxbFleetMain\templates\ApxbFleetMain\index.html:11
+msgid "ImproveRoadSafety"
+msgstr "Thuthukisa ukuphepha emgwaqeni"
+
+#: .\ApxbFleetMain\templates\ApxbFleetMain\index.html:11
+msgid "And"
+msgstr " noku-"
+
+#: .\ApxbFleetMain\templates\ApxbFleetMain\index.html:11
+msgid "PreventAccidents"
+msgstr " Vimbela Izingozi"
+
+#: .\ApxbFleetMain\templates\ApxbFleetMain\index.html:11
+msgid "With"
+msgstr " Ne-"
+
+#: .\ApxbFleetMain\templates\ApxbFleetMain\index.html:11
+msgid "AdvancedDriverMonitoringTechnology"
+msgstr "I-Advanced Driver Monitoring Technology"
+
+#: .\ApxbFleetMain\templates\ApxbFleetMain\pages\drivers\add.html:7
+msgid "CreateNewDriver"
+msgstr "Yenza umshayeli omusha"
+
+#: .\ApxbFleetMain\templates\ApxbFleetMain\pages\drivers\add.html:18
+msgid "Save"
+msgstr "Faka"
+
+#: .\ApxbFleetMain\templates\ApxbFleetMain\pages\drivers\details.html:8
+msgid "EditDriver"
+msgstr "Hlela lo Mshayeli"
+
+#: .\ApxbFleetMain\templates\ApxbFleetMain\pages\drivers\details.html:21
+msgid "DriverId"
+msgstr "i-Id yakhe"
+
+#: .\ApxbFleetMain\templates\ApxbFleetMain\pages\drivers\details.html:22
+msgid "LicenseNumber"
+msgstr "Inombolo Yelayisensi"
+
+#: .\ApxbFleetMain\templates\ApxbFleetMain\pages\drivers\details.html:23
+msgid "PhoneNumber"
+msgstr "Inombolo yocingo"
+
+#: .\ApxbFleetMain\templates\ApxbFleetMain\pages\drivers\details.html:24
+msgid "Email"
+msgstr "i-Email yake"
+
+#: .\ApxbFleetMain\templates\ApxbFleetMain\pages\drivers\details.html:25
+msgid "Address"
+msgstr "Ikheli"
+
+#: .\ApxbFleetMain\templates\ApxbFleetMain\pages\drivers\details.html:28
+msgid "LiveFeeds"
+msgstr "Ividiyo ebukhoma"
+
+#: .\ApxbFleetMain\templates\ApxbFleetMain\pages\drivers\details.html:32
+msgid "AdditionalInformation"
+msgstr "Ulwazi Olwengeziwe"
+
+#: .\ApxbFleetMain\templates\ApxbFleetMain\pages\drivers\details.html:34
+msgid "YearsOfExperience"
+msgstr "Iminyaka Yesipiliyoni"
+
+#: .\ApxbFleetMain\templates\ApxbFleetMain\pages\drivers\details.html:35
+msgid "DrivingRecord"
+msgstr "i-Driver Record"
+
+#: .\ApxbFleetMain\templates\ApxbFleetMain\pages\drivers\details.html:35
+msgid "Clean"
+msgstr ""
+
+#: .\ApxbFleetMain\templates\ApxbFleetMain\pages\drivers\details.html:36
+msgid "TrainingCoursesCompleted"
+msgstr "Akapedza Zvidzidzo zvipi"
+
+#: .\ApxbFleetMain\templates\ApxbFleetMain\pages\drivers\details.html:36
+msgid "DefensiveDriving"
+msgstr ""
+
+#: .\ApxbFleetMain\templates\ApxbFleetMain\pages\drivers\details.html:36
+msgid "SafetyTraining"
+msgstr ""
+
+#: .\ApxbFleetMain\templates\ApxbFleetMain\pages\drivers\details.html:37
+msgid "LanguagesSpoken"
+msgstr "Izilimi akwazi ukuzikhuluma"
+
+#: .\ApxbFleetMain\templates\ApxbFleetMain\pages\drivers\details.html:37
+msgid "English"
+msgstr ""
+
+#: .\ApxbFleetMain\templates\ApxbFleetMain\pages\drivers\details.html:37
+msgid "Spanish"
+msgstr ""
+
+#: .\ApxbFleetMain\templates\ApxbFleetMain\pages\drivers\details.html:40
+msgid "LocationInformation"
+msgstr "Zvimbo Dzaari"
+
+#: .\ApxbFleetMain\templates\ApxbFleetMain\pages\drivers\details.html:43
+msgid "CurrentLocation"
+msgstr "Ukuphi manje"
+
+#: .\ApxbFleetMain\templates\ApxbFleetMain\pages\drivers\details.html:45
+msgid "GetDirections"
+msgstr "Ukuphi manje"
+
+#: .\ApxbFleetMain\views.py:87
+msgid "Hello, world!"
+msgstr ""
